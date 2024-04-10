@@ -1,0 +1,26 @@
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 https://maven.apache.org/xsd/settings-1.0.0.xsd">
+  <profiles>
+    <profile>
+      <id>vista-api-x</id>
+      <activation>
+        <activeByDefault>true</activeByDefault>
+      </activation>
+      <repositories>
+        <repository>
+          <id>paul-malinowski-vista-api-x</id>
+          <url>https://maven.pkg.github.com/paul-malinowski/vista-api-x</url>
+          <snapshots>
+            <enabled>true</enabled>
+          </snapshots>
+        </repository>
+      </repositories>
+    </profile>
+  </profiles>
+  <servers>
+    <server>
+      <id>paul-malinowski-vista-api-x</id>
+      <username>paul-malinowski</username>
+      <password>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</password>
+    </server>
+  </servers>
+</settings>
