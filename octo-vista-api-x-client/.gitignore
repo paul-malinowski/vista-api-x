@@ -1,0 +1,15 @@
+**/.git
+**/.settings
+**/.project
+**/.vscode
+**/.classpath
+**/target
+**/bin
+**/*.bak
+**/*.code-workspace
+*~
+deploy.bat
+temp
+*.sh
+
+fortify-octo-vista-api*

@@ -1,0 +1,19 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: vista-api-x
+  title: VistA-API-X
+  tags:
+    - vista
+    - internal
+  links:
+    - url: dir:.
+      title: Documentation
+      icon: web
+spec:
+  type: openapi
+  lifecycle: production
+  owner: cdsp-shared-services
+  system: digital-veterans-platform
+  definition:
+    $text: ./openapi.yaml

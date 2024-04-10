@@ -1,0 +1,135 @@
+openapi: 3.0.1
+servers:
+  - url: https://dev.vista-api-x.va.gov/
+    description: VistA-API-X Development Server
+  - url: https://staging.vista-api-x.va.gov/
+    description: VistA-API-X Staging Server
+  - url: /
+    description: This VistA-API-X Service (Not for use with Lighthouse Hub)
+paths:
+  /api/auth/token:
+    post:
+      summary: Generate a system level JWT token for use as a bearer authentication token.
+      tags:
+        - System Authentication
+      operationId: token
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Credentials"
+      responses:
+        default:
+          description: default response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/VistaApiResponseAuthenticationToken"
+  /api/vista-sites/{station_number}/users/{caller_duz}/rpc/invoke:
+    post:
+      summary: Execute VistA RPC
+      tags:
+        - System RPC
+      description: Return data for given RPC
+      operationId: invoke
+      security:
+        - BearerAuth: []
+      parameters:
+        - name: station_number
+          in: path
+          description: Station number of VistA system; should match station_number in bearer token
+          required: true
+          schema:
+            type: string
+          example: 500
+        - name: caller_duz
+          in: path
+          description: identifier of vista user performing action
+          required: true
+          schema:
+            type: string
+          example: 123456789
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/RpcRequestX"
+      responses:
+        default:
+          description: default response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/RpcResponseX"
+components:
+  schemas:
+    AuthenticationToken:
+      type: object
+      properties:
+        token:
+          type: string
+    VistaApiResponseAuthenticationToken:
+      type: object
+      properties:
+        path:
+          type: string
+        data:
+          $ref: "#/components/schemas/AuthenticationToken"
+    Credentials:
+      type: object
+      properties:
+        key:
+          type: string
+    RpcResponseX:
+      type: object
+      properties:
+        path:
+          type: string
+        payload:
+          type: object
+    Parameter:
+      type: object
+      properties:
+        ref:
+          type: string
+        string:
+          type: string
+        array:
+          type: array
+          items:
+            type: string
+        namedArray:
+          type: object
+          additionalProperties:
+            type: string
+    RpcRequestX:
+      required:
+        - context
+        - rpc
+      type: object
+      properties:
+        rpc:
+          type: string
+        context:
+          type: string
+        version:
+          type: number
+          format: double
+        timeout:
+          maximum: 60000
+          minimum: 10000
+          type: integer
+          description: "timeout to allow for rpc execution, default 15000 (15 seconds)"
+          format: int32
+          example: 15000
+        jsonResult:
+          type: boolean
+        parameters:
+          type: array
+          items:
+            $ref: "#/components/schemas/Parameter"
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
