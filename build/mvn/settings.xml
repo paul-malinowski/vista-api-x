@@ -19,8 +19,8 @@
   <servers>
     <server>
       <id>paul-malinowski-vista-api-x</id>
-      <username>paul-malinowski</username>
-      <password>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</password>
+      <username>${env.BUILD_USER}</username>
+      <password>${env.BUILD_ACCESS_TOKEN}</password>
     </server>
   </servers>
 </settings>
