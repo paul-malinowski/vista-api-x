@@ -1,0 +1,19 @@
+name: Build VistA API
+on:
+  workflow_dispatch:
+jobs:
+  Build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+      - name: Prepare env
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+          cache: 'maven'
+      - name: Build vista-api war
+        run: |
+          cp build/mvn/settings.xml ~/.m2/settings.xml
+          mvn clean package
