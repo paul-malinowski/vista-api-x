@@ -15,5 +15,4 @@ jobs:
           cache: 'maven'
       - name: Build vista-api war
         run: |
-          cp build/mvn/settings.xml ~/.m2/settings.xml
-          mvn clean package -X
+          mvn clean package
