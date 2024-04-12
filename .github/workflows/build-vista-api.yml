@@ -17,4 +17,4 @@ jobs:
         run: |
           java -version
           which java
-          mvn clean package
+          JAVA_HOME=/opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.10-7/x64 mvn clean package
