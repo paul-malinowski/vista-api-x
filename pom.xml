@@ -26,9 +26,8 @@
 
         <repositories>
 		<repository>
-			<id>llvamc-public-repository</id>
-			<name>Loma Linda Maven Repository</name>
-			<url>https://maven.lom.med.va.gov/repository</url>
+        	<id>github</id>
+        	<url>https://maven.pkg.github.com/paul-malinowski/vista-api-x</url>
 		</repository>
 	</repositories>
 </project>
