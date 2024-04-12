@@ -15,4 +15,6 @@ jobs:
           cache: 'maven'
       - name: Build vista-api war
         run: |
+          java -version
+          which java
           mvn clean package
