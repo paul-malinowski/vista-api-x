@@ -18,6 +18,7 @@ jobs:
           BD_USER: ${{ secrets.BUILD_USER }}
           BD_ACCESS_TOKEN: ${{ secrets.BUILD_ACCESS_TOKEN }}
         run: |
+          cp build/mvn/settings.xml ~/.m2/settings.xml
           java -version
           which java
           JAVA_HOME=/opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.10-7/x64 mvn clean package
