@@ -14,6 +14,9 @@ jobs:
           java-version: '17'
           cache: 'maven'
       - name: Build vista-api war
+        env:
+          BD_USER: ${{ secrets.BUILD_USER }}
+          BD_ACCESS_TOKEN: ${{ secrets.BUILD_ACCESS_TOKEN }}
         run: |
           java -version
           which java
