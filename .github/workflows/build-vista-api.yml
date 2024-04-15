@@ -21,4 +21,5 @@ jobs:
           cp build/mvn/settings.xml ~/.m2/settings.xml
           java -version
           which java
+          JAVA_HOME=/opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.10-7/x64 mvn clean install
           JAVA_HOME=/opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.10-7/x64 mvn clean package
