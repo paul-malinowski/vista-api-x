@@ -36,7 +36,6 @@
         <url>https://maven.pkg.github.com/paul-malinowski/vista-api-x</url>
     </repository>
 </distributionManagement>
-
         <repositories>
 		<repository>
         	<id>github</id>
