@@ -173,5 +173,16 @@
 			<version>0.98.1</version>
 		</dependency>
 	</dependencies>
-
+<distributionManagement>
+    <repository>
+        <id>github</id>
+        <url>https://maven.pkg.github.com/paul-malinowski/vista-api-x</url>
+    </repository>
+</distributionManagement>
+        <repositories>
+		<repository>
+        	<id>github</id>
+        	<url>https://maven.pkg.github.com/paul-malinowski/vista-api-x</url>
+		</repository>
+	</repositories>
 </project>
