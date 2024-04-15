@@ -18,7 +18,7 @@ jobs:
           BD_USER: ${{ secrets.BUILD_USER }}
           BD_ACCESS_TOKEN: ${{ secrets.BUILD_ACCESS_TOKEN }}
         run: |
-          cp build/mvn/settings.xml ~/.m2/settings.xml
+          cp build/mvn/settings.xml /home/runner/work/vista-api-x/vista-api-x
           java -version
           which java
           JAVA_HOME=/opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.10-7/x64 mvn --settings settings.xml clean package
